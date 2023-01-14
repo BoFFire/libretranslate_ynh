@@ -8,7 +8,10 @@ User=__APP__
 Group=__APP__
 Restart=always
 Type=simple
-WorkingDirectory=__FINALPATH__
+; Make sure that all paths fit your installation.
+; Path to the home directory of the user running the Akkoma service.
+Environment="HOME=__FINALPATH__/.local/bin/"
+WorkingDirectory=__FINALPATH__/.local/bin/
 ExecStart=/usr/local/bin/pipenv run python3 __FINALPATH__/.venv/bin/libretranslate --host 127.0.0.1 --port __PORT__
 
 [Install]
